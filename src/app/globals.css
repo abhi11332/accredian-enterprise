@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: 'Manrope', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --brand: #1a73e8;
+  --brand-dark: #0f5fd1;
+  --ink: #10213a;
+  --muted: #5c6f8a;
+  --line: #dce6f4;
+  --surface: #ffffff;
+  --surface-soft: #f5f8fd;
+  --surface-tint: #eef4ff;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at top left, rgba(26, 115, 232, 0.12), transparent 30%),
+    linear-gradient(180deg, #f7faff 0%, #ffffff 24%, #f8fbff 100%);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #edf3fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b9cae5;
+  border-radius: 3px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1a73e8 0%, #4ca4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 115, 232, 0.14);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 9px 14px;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 12px 28px rgba(16, 33, 58, 0.06);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.12);
+}
+
+.surface-card {
+  border: 1px solid rgba(16, 33, 58, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 50px rgba(16, 33, 58, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.surface-card-soft {
+  border: 1px solid rgba(16, 33, 58, 0.06);
+  background: var(--surface-soft);
+  box-shadow: 0 16px 40px rgba(16, 33, 58, 0.04);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(26, 115, 232, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 115, 232, 0.06) 1px, transparent 1px);
+  background-size: 68px 68px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.section-copy {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 14px 24px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 14px 32px rgba(26, 115, 232, 0.28);
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 33, 58, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 14px 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-outline:hover {
+  transform: translateY(-1px);
+  border-color: rgba(26, 115, 232, 0.35);
+  box-shadow: 0 12px 26px rgba(16, 33, 58, 0.06);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+}
+
+.section-padding {
+  @apply py-16 px-4 sm:px-5 md:py-20 md:px-8 lg:px-16;
+}
+
+.section-shell {
+  width: 100%;
+  max-width: 84rem;
+  margin: 0 auto;
+}
+
+.brand-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .section-copy {
+    font-size: 0.96rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+  }
+}
