@@ -19,6 +19,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -27,7 +38,9 @@ export default function Navbar() {
     >
       <div className="section-shell px-4 md:px-8 lg:px-16">
         <div
-          className={`rounded-full border transition-all duration-300 ${
+          className={`border transition-all duration-300 ${
+            menuOpen ? 'rounded-[30px] lg:rounded-full' : 'rounded-full'
+          } ${
             scrolled
               ? 'border-slate-200/90 bg-white/92 shadow-[0_18px_45px_rgba(16,33,58,0.12)] backdrop-blur-xl'
               : 'border-white/70 bg-white/82 shadow-[0_14px_36px_rgba(16,33,58,0.08)] backdrop-blur-xl'
@@ -62,7 +75,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="hidden items-center gap-3 md:flex">
+            <div className="hidden items-center gap-3 lg:flex">
               <a href="#lead-form" className="btn-outline px-5 py-2.5 text-sm">
                 Talk to Advisor
               </a>
@@ -73,7 +86,7 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 md:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 lg:hidden"
               onClick={() => setMenuOpen((value) => !value)}
               aria-label="Toggle menu"
               aria-expanded={menuOpen}
@@ -90,7 +103,7 @@ export default function Navbar() {
           </div>
 
           {menuOpen && (
-            <div id="mobile-menu" className="border-t border-slate-200 px-4 pb-4 pt-3 md:hidden">
+            <div id="mobile-menu" className="border-t border-slate-200 bg-white/80 px-4 pb-4 pt-3 lg:hidden">
               <div className="flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <a

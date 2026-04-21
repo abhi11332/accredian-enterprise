@@ -4,8 +4,8 @@ A partial clone of [Accredian Enterprise](https://enterprise.accredian.com/) bui
 
 ## Live Links
 
-- Live Demo: `ADD_VERCEL_LINK_HERE`
-- GitHub Repository: `ADD_GITHUB_REPO_LINK_HERE`
+- Live Demo: `https://accredian-enterprise-one.vercel.app/`
+- GitHub Repository: `https://github.com/abhi11332/accredian-enterprise`
 
 ## Assignment Coverage
 
@@ -35,7 +35,7 @@ Bonus implemented:
 1. Clone the repository
 
 ```bash
-git clone ADD_GITHUB_REPO_LINK_HERE
+git clone https://github.com/abhi11332/accredian-enterprise
 cd accredian-enterprise
 ```
 
