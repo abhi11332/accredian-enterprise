@@ -36,7 +36,7 @@ export default function Navbar() {
         scrolled ? 'py-3' : 'py-4'
       }`}
     >
-      <div className="section-shell px-4 md:px-8 lg:px-16">
+      <div className="section-shell relative px-4 md:px-8 lg:px-16">
         <div
           className={`border transition-all duration-300 ${
             menuOpen ? 'rounded-[30px] lg:rounded-full' : 'rounded-full'
@@ -101,9 +101,20 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
+        </div>
 
-          {menuOpen && (
-            <div id="mobile-menu" className="border-t border-slate-200 bg-white/80 px-4 pb-4 pt-3 lg:hidden">
+        {menuOpen && (
+          <>
+            <button
+              type="button"
+              aria-label="Close menu backdrop"
+              className="fixed inset-0 top-[84px] bg-slate-900/10 backdrop-blur-[2px] lg:hidden"
+              onClick={() => setMenuOpen(false)}
+            />
+            <div
+              id="mobile-menu"
+              className="absolute left-4 right-4 top-full z-10 mt-3 rounded-[30px] border border-slate-200 bg-white p-4 shadow-[0_24px_60px_rgba(16,33,58,0.16)] lg:hidden"
+            >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <a
@@ -116,7 +127,7 @@ export default function Navbar() {
                   </a>
                 ))}
               </div>
-              <div className="mt-4 flex flex-col gap-2">
+              <div className="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-4">
                 <a href="#lead-form" className="btn-outline py-3 text-sm" onClick={() => setMenuOpen(false)}>
                   Talk to Advisor
                 </a>
@@ -125,8 +136,8 @@ export default function Navbar() {
                 </a>
               </div>
             </div>
-          )}
-        </div>
+          </>
+        )}
       </div>
     </nav>
   )
